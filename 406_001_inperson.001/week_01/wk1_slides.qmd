@@ -1,0 +1,299 @@
+---
+format:
+  revealjs: 
+    slide-number: c/t
+    progress: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    logo: img/dsa.png
+    theme: [default, css/index.scss]
+    width: 1920
+    height: 1080
+    margin: 0.05
+resources:
+  - demo.pdf
+---
+
+<h1>Week 1 - August 20</h1>
+
+<h2>Exploratory Data Analysis for Big Data</h2>
+
+<hr>
+
+<h3>Jeanne McClure, Ph.D</h3>
+
+<h3>DSC 406.001</h3>
+
+<br>
+
+## Welcome to Exploratory Data Analysis (EDA)
+
+::: columns
+::: {.column width="45%" style="font-size: 45px"}
+-   Data science is an exciting discipline that allows you to turn raw data into understanding, insight, and knowledge.
+
+-   We're going to learn to do this in a `tidy` way -- more on that later!
+
+-   This is a course on introduction to Exploratory Data Analysis, an important step in the Data Science lifecycle
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="45%"}
+![](img/dsa_lfcycle.svg){.absolute .fragment top="300" left="900" width="1000"}
+:::
+:::
+
+## What is EDA?
+
+::: columns
+::: {.column width="45%" style="font-size: 45px"}
+> EDA involves **investigating and summarizing** data sets to **uncover patterns**, **spot anomalies**, and **test hypotheses**, using statistical graphics and other data visualization methods.
+
+*This process helps us to understand underlying trends in data before applying more complex analytical techniques.*
+:::
+
+::: {.column width="5%"}
+:::
+
+::: {.column width="45%"}
+<img src="img/eda_graph_1.svg" height="750px"/>
+:::
+:::
+
+::: notes
+**Speaker notes**
+
+**EDA**
+:::
+
+## What will we learn in this class?
+
+. . .
+
+-   Important Packages for Exploratory Data Analysis
+
+. . .
+
+-   Descriptive statistics, Frequency, Tables and summarization
+
+. . .
+
+-   Univariate Analysis (Distribution of data & Graphical Analysis)
+
+. . .
+
+-   Bivariate Analysis (Graphical Analysis, Relationships, Correlation)
+
+. . .
+
+-   Creating Graphs (Bar, histogram, boxplot, scatter and others)
+
+## What about tests?
+
+![](img/zero_test.svg){.absolute .fragment top="125" left="400" width="1100"}
+
+## How is the class structured
+
+. . .
+
+-   20 - 25 min interactive lecture
+
+. . .
+
+-   25 - 30 In-class labs
+
+## What about out of class work?
+
+. . .
+
+-   What ever we don't finish in class
+
+. . .
+
+-   A software walkthough and setup
+
+. . .
+
+-   4 Interactive Discussion/Other homework
+
+. . .
+
+-   Project (3 1/2 parts)
+
+. . .
+
+-   DUE by 5PM on the due date.
+
+## What is this project you speak of?
+
+. . .
+
+-   Worth 50% of your grade
+
+. . .
+
+-   3 parts
+
+    -   Submit a dataset based on motivation/interest.
+    -   Submit a proposal based on what data moves, guiding questions...etc.
+    -   Give a presentation (Powerpoint/Google/Quarto).
+    -   Submit a final written product in quarto (published).
+    -   Can work individually or in a group.
+
+## What type of class is this?
+
+. . .
+
+-   This is an in-person class (attendance is being taken).
+    -   Absence Policy. Students are permitted 3 excused absences per absent policy.
+    -   Beyond this, each additional absence will result in a 2-point deduction from the final grade.
+
+. . .
+
+-   Two classes will be virtual (attendance required)
+    -   You **may not** send otter.ai in your absence. Nor is the free version of otter.ai allowed to virtual classes.
+    -   I will send a annonymized transcript to students upon request.
+
+# Tools for Reproducible Research
+
+GitHub, Posit, RStudio, Quarto, and R
+
+## Tool Types
+
+Reproducible research involves two broad sets of tools:
+
+-   **A Reproducible Research Environment**, that includes the statistical tools you need to run your analyses; automatically track the provenance of data, analyses, and results; and to package them for redistribution".
+
+-   **A Reproducible Research Publisher** that prepares dynamic documents for presenting results and is easily linked to the reproducible research environment.
+
+## GitHub
+
+::: columns
+::: {.column width="50%"}
+
+[GitHub](https://github.com) is a web-based platform used for version control, collaboration, and sharing of a project's code, documents, and other related files.
+:::
+
+::: {.column width="50%"}
+![](img/github.png){fig-align="center" width="100%"}
+:::
+:::
+
+::: notes
+**Speaker Notes:**
+
+GitHub is an interface and cloud hosting service built on top of the Git version control system. GitHub was not explicitly designed to host research projects or even data, but for programmers to work together to build computer programs. This seems very far from reproducible research but remember that as reproducible researchers, we are building projects out of interconnected text files. In important ways, this is exactly the same as building a computer program and offers many highly developed and robust features for reproducible researchers.
+
+We won't be using GitHub directly, but I did want to note that if you click the link, it will take you to our GitHub organization site where you will find our RStudio Projects stored as Repositories, or repos, including the laser-orientation repository you just opened.
+:::
+
+## Posit Cloud
+
+::: columns
+::: {.column width="50%"}
+The EDA course will use [Posit Cloud](https://posit.cloud) workspaces.
+
+Posit Cloud lets you access [Posit](https://posit.co)'s powerful set of data science tools like [RStudio IDE](https://posit.co/products/open-source/rstudio/) and [Jupyter Notebooks](https://jupyter.org) right in your browser.
+:::
+
+::: {.column width="50%"}
+![](img/posit-cloud.png){fig-align="center" width="100%"}
+:::
+:::
+
+::: notes
+**Speaker Notes**:
+
+Posit Cloud (formerly RStudio Cloud) provides a powerful set of data science tools right in your browser with no installation or complex configuration required.All of our Module materials will be access through Posit Cloud this year so we encourage you bookmark posit.cloud in your browser.
+:::
+
+## RStudio
+
+::: columns
+::: {.column width="50%"}
+<div>
+
+[RStudio](https://posit.co/products/open-source/rstudio/) is an integrated development environment (IDE) for R and Python and includes:
+
+-   a **Console** for running R code directly,
+
+-   syntax-highlighting editor that supports direct code execution in the **Source** pane,
+
+-   tools for plotting, history, debugging, and management of research projects in the **Environment** and **Files** panes.
+
+</div>
+:::
+
+::: {.column width="50%"}
+![](img/rstudio.png){fig-align="center"}
+:::
+:::
+
+::: notes
+**Speaker Notes:**
+
+
+RStudio is an integrated development environment (IDE) for R and Python and includes a console for running R code directly, syntax-highlighting editor that supports direct code execution in the source pane, and tools for plotting, history, debugging, and management of research projects in the Environment and Files panes.
+
+RStudio is basically your home for all of the files, images, reports, and code that are used in a research project given project.When you create a "project" with RStudio, it's straightforward to divide your work into multiple contexts, each with their own working directory, workspace, history, and source documents.
+
+\< Provide a brief walkthrough of the different panes and discuss what they are used for including how they might make their own R Project is they so desired. \>
+:::
+
+## Quarto
+
+::: columns
+::: {.column width="50%"}
+[Quarto](https://quarto.org) is used with Python and R to create reproducible, production quality:
+
+-   [websites](https://laser-institute.github.io/laser-website/)
+
+-   [presentations](https://laser-institute.github.io/laser-orientation/orientation-code-along.html#/title-slide)
+
+-   [dashboards](https://rpubs.com/sbkellogg/dashboard-example)
+
+-   [books](https://datascienceineducation.com)
+
+-   journal articles and much [more](https://quarto.org/docs/guide/)!
+:::
+
+::: {.column width="50%"}
+![](img/quarto.png){fig-align="center"}
+:::
+:::
+
+## R & Python
+
+::: columns
+::: {.column width="50%"}
+The EDA course uses [R](https://www.r-project.org/about.html) one of the most popular programming languages for data science, statistical analysis, and machine learning.
+
+<br>
+
+It is freely available have large and active communities and a vast number of libraries and frameworks for Exploratory Data Analysis.
+:::
+
+::: {.column width="50%"}
+![](img/r-script.png){fig-align="center" width="70%"}
+:::
+:::
+
+::: notes
+**Speaker Notes:**
+
+Underlying all of this is R one of the most popular programming languages used in data science, statistical analysis, and machine learning. That  platform is rich and can be used to create a wide range of static and dynamic outputs for communicating your research.
+
+Let's create a new R script so we can begin working with R to help illustrate a simple research workflow and analyze some data.
+
+:::
+
+## Let's dive in!
+
+-   Go to [Posit Cloud](https://posit.cloud) workspaces.
+-   Sign up with your NCSU Google address
+    -   YES, click Google and add use your NCSU credentials
+    
+![](img/posit_login.svg){fig-align="center" width="50%"}

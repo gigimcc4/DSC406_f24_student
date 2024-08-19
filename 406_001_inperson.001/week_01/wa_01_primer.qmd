@@ -1,0 +1,273 @@
+---
+title: "R Primer - WA_01"
+subtitle: "DSC_406.001"
+author: "ADD YOUR NAME HERE"
+date: today 
+format:
+  html:
+    toc: true
+    toc-depth: 4
+    toc-location: right
+theme:
+  light: simplex
+  dark: cyborg
+editor: visual
+---
+
+## 0 - Introduction
+
+This is a brief primer for R programming. We will have several of these assignments to do in class. What you do not finish in class you will complete out of class by the due date. I encourage you to work together 😀!
+
+This primer will use RStudio with Quarto.
+
+"[Quarto](https://quarto.org/docs/get-started/hello/rstudio.html#:~:text=Quarto%20is%20a%20multi%2Dlanguage,to%20use%20RStudio%20with%20Quarto.) is a multi-language, next-generation version of R Markdown from Posit and includes dozens of new features and capabilities while at the same being able to render most existing Rmd files without modification."
+
+### How to use this document
+
+This is an Quarto Notebook.
+
+A key way to use it is to be sure that you are viewing the document in the "Visual Editor" mode. You can use this mode by clicking the symbol that appears like a letter A (or the tip of a pencil!) in the top right of this window.
+
+![](img/visual_1.svg)
+
+Let's get started!
+
+### 🤿 Let's dive in.......
+
+### Entering commands in R
+
+"Chunks", "block", or "blob" of R code can be added using the insert option from the toolbar or the CTRL + ALT + I shortcut
+
+Or
+
+by adding triple backticks on either side of the code chunk, but now add curly brackets at the end of the first triplet
+
+#### **👉 Your Turn** **⤵**
+
+Add a code chunk with a method of your choice.
+
+# HOLD to ADD image here
+
+### Execute the code:
+
+-   Each line of R can be executed by clicking on the line and pressing CTRL + ENTER shortcut
+-   Or, you can press the green triangle on the right-hand side to run everything in the chunk
+
+Click the green arrow in the right corner of the "chunk"-of code to execute the "Hello World" script.
+
+```{r}
+#This is a comment
+print("Hello World")
+```
+
+### **Objects**
+
+A variable is a letter or word which takes (or contains) a value. We use the assignment 'operator', `<-` to create a variable and store some value in it.
+
+```{r}
+#This is a comment
+#store 10 in x and then inspect x 
+x <- 10
+x
+```
+
+```{r}
+myNumber <- 25
+myNumber
+```
+
+We also can perform arithmetic on variables using functions:
+
+```{r}
+sqrt(myNumber)
+```
+
+We can add variables together:
+
+```{r}
+x + myNumber
+```
+
+We can change the value of an existing variable:
+
+```{r}
+x <- 21
+x
+```
+
+We can set one variable to equal the value of another variable:
+
+```{r}
+x <- myNumber
+x
+```
+
+When we are feeling lazy we might give our variables short names (x, y, i...etc), but a best practice would be to give them meaningful names. - Always lower case - Cannot start with a number or contain characters such as ., \_, '-'. - No spaces use underscore to connect - DO not name variables the same as as in-built functions in R, such as c, T, mean - Don't ever have names like TRUE/FALSE or NaN, inf, NA
+
+#### **👉 Your Turn** **⤵**
+
+First, Assign a number between 1 and 10 to a new object call my_number. Second, Multiply my_number by 2 and save as my_product. Third, Type my_product and run to examine the contents.
+
+```{r}
+#ADD YOUR CODE BELOW
+
+
+```
+
+### Functions
+
+Functions in R perform operations on arguments (the inputs(s) to the function).
+
+mean() max() filter() class()
+
+#### **👉 Your Turn** **⤵**
+
+In the code chunk below, use the round() function to round 3.14 to the nearest whole number. Run your code to see the result.
+
+```{r}
+#ADD YOUR CODE BELOW
+
+
+```
+
+### Arguments
+
+Arguments are always contained in parentheses -- curved brackets, () -- separated by commas.
+
+Arguments can be named or unnamed, but if they are unnamed they must be ordered (we will see later how to find the right order). The names of the arguments are determined by the author of the function and can be found in the help page for the function. When testing code, it is easier and safer to name the arguments.
+
+Use the ? to read about the arguments you can add to the 'mean()' function
+
+?mean() ?class()
+
+Take a look at the arguments fo rthe `round()` function.
+
+#### **👉 Your Turn** **⤵**
+
+Add an argument to the round() function to round pi to the nearest 1 decimal places. Remember to add a comma between arguments. *#HINT: look under USAGE*
+
+```{r}
+#ADD YOUR CODE BELOW
+
+
+```
+
+### Vectors
+
+A vector is simply a list of items that are of the same type. To combine the list of items to a vector, use the c() function and separate the items by a comma. In the example below, we create a vector variable called fruits.
+
+```{r}
+# Vector of strings
+fruits <- c("banana", "apple", "orange")
+
+# Inspect fruits
+fruits
+```
+
+You can add a constant to each element of the vector
+
+```{r}
+x <- 1:5
+2 + x
+```
+
+You can multiply a constant by each element of a vector
+
+```{r}
+x <- 1:5
+2 * x
+```
+
+You can do arithmetic on two vectors of the same length
+
+```{r}
+x <- c(1, 3, 5)
+y <- c(2, 4, 6)
+x + y
+
+```
+
+Or multiply
+
+```{r}
+x <- c(1, 3, 5)
+y <- c(2, 4, 6)
+x * y
+```
+
+We can create a vector that contains the numbers 2 through 10.
+
+```{r}
+vector <- c(2:10)
+vector
+```
+
+You can create a vector that has logical values
+
+```{r}
+# Vector of logical values
+log_values <- c(TRUE, FALSE, TRUE, FALSE)
+
+log_values
+```
+
+#### **👉 Your Turn** **⤵**
+
+Create a vector that contains the numbers 50-100, Save as a new object called my_vector.
+
+```{r}
+#ADD YOUR CODE BELOW
+
+
+```
+
+### Indexing
+
+# PICK UP HERE
+
+### Data Types
+
+Basic data types in R can be divided into the following types:
+
+-   `numeric` - (10.5, 55, 787)
+-   `integer` - (1L, 55L, 100L, where the letter "L" declares this as an integer)
+-   `complex` - (9 + 3i, where "i" is the imaginary part)
+-   `character` - (a.k.a. string) - ("k", "R is exciting", "FALSE", "11.5")
+-   `logical` - (a.k.a. boolean) - (TRUE or FALSE)
+-   `factor`- (a.k.a. categorical data of levels), factor(c("yes", "no", "yes"))
+
+We can use the `class()` function to check the data type of a variable.
+
+#### **👉 Your Turn** **⤵**
+
+-   check the class of `log_values`
+-   check the class of `vector`
+
+```{r}
+#ADD YOUR CODE BELOW
+
+
+
+```
+
+### Packages 📦
+
+R uses "packages," add-ons that enhance its functionality. One package that we'll be using is the tidyverse. The {tidyverse} package is actually a [collection of R](https://www.tidyverse.org/packages) packages designed for reading, wrangling, and exploring data and which all share an underlying design philosophy, grammar, and data structures.
+
+Before we can begin using these packages, we will need to install them using the `install.packages()` function built into R. Since we only need to install once, we install a packagein the console.
+
+Click the green arrow in the right corner of the block-or "chunk"-of code that follows and see if you can identify which packages have been installed in the console below.
+
+```{r, eval=FALSE}
+install.packages("tidyverse")
+```
+
+Once these packages have been installed, we will need to load them in order to use the handy functions they contain.
+
+To load the tidyverse, click the green arrow in the right corner of the block-or "chunk"-of code that follows. Notice that we do not need to use the quotation marks again because the {tidyverse} package and packages it contains are now a part of our package library!
+
+```{r}
+library(tidyverse)
+```
+
+Please do not worry if you saw a number of messages: those probably mean that the tidyverse loaded just fine. If you see an error, though, try to interpret or search via your search engine the contents of the error, or reach out to us for assistance.
