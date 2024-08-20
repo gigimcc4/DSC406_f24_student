@@ -36,17 +36,36 @@ Let's get started!
 
 ### Entering commands in R
 
-"Chunks", "block", or "blob" of R code can be added using the insert option from the toolbar or the CTRL + ALT + I shortcut
+"Chunks", "block", or "blob" of R code can be added
 
-Or
-
-by adding triple backticks on either side of the code chunk, but now add curly brackets at the end of the first triplet
+-   using the Add Chunk command in the editor toolbar
+-   the CTRL + ALT + I shortcut (OS X: Cmd + Option + I)
+-   or by typing the chunk delimiters `{r} and`.)
 
 #### **👉 Your Turn** **⤵**
 
 Add a code chunk with a method of your choice.
 
-# HOLD to ADD image here
+#### Code Chunk Options:
+
+| Option  | Description                                                                                                                                                                                                                          |
+|----------|------------------------------------|
+| eval    | Evaluate the code chunk (if false, just echos the code into the output)                                                                                                                                                              |
+| echo    | Include the source code in output output Include the results of executing the code in the output (true, false, or asis to indicate that the output is raw markdown and should not have any of Quarto's standard enclosing markdown). |
+| warning | Include warnings in the output.                                                                                                                                                                                                      |
+| error   |  Include errors in the output (note that this implies that errors executing code will not halt processing of the document).                                                                                                          |
+| include | Catch all for preventing any output (code or results) from being included (e.g. `include: false` suppresses all output from the code block).                                                                                         |
+
+Example:
+
+```{r}
+
+#| eval:false
+#| warning: false
+
+str(cars)
+
+```
 
 ### Execute the code:
 
@@ -223,7 +242,61 @@ Create a vector that contains the numbers 50-100, Save as a new object called my
 
 ### Indexing
 
-# PICK UP HERE
+There are multiple ways to access or replace values in vectors or other data structures. The most common approach is to use "indexing". This is also referred to as "slicing".
+
+In the below, note that brackets \[ \] are used for indexing, whereas you have already seen that parentheses ( ) are used to call a function. Later on, you will also see the use of { }. It is very important not to mix these up.
+
+Lets create a vector
+
+```{r}
+b <- 10:15
+
+#call the object
+
+b
+```
+
+Get the first element of a vector
+
+```{r}
+b[1]
+```
+
+#### **👉 Your Turn** **⤵**
+
+Get the second elements of a vector
+
+```{r}
+
+```
+
+Now we can get elements 2 & 3
+
+```{r}
+b[2:3]
+
+```
+
+We can also use the c() function
+
+```{r}
+b[c(2,3)]
+```
+
+More advance, return all elements except the second
+
+```{r}
+b[-2]
+```
+
+#### **👉 Your Turn** **⤵**
+
+We can use the c() function to return all elements except the second
+
+```{r}
+# this is the same using a c( ) function
+
+```
 
 ### Data Types
 
@@ -258,7 +331,12 @@ Before we can begin using these packages, we will need to install them using the
 
 Click the green arrow in the right corner of the block-or "chunk"-of code that follows and see if you can identify which packages have been installed in the console below.
 
-```{r, eval=FALSE}
+We will only install.packages(" ") in the console since they only need to be added once.
+
+```{r}
+
+#| eval:false
+
 install.packages("tidyverse")
 ```
 
@@ -266,8 +344,10 @@ Once these packages have been installed, we will need to load them in order to u
 
 To load the tidyverse, click the green arrow in the right corner of the block-or "chunk"-of code that follows. Notice that we do not need to use the quotation marks again because the {tidyverse} package and packages it contains are now a part of our package library!
 
+You will need to call your packages for every script.
+
 ```{r}
 library(tidyverse)
 ```
 
-Please do not worry if you saw a number of messages: those probably mean that the tidyverse loaded just fine. If you see an error, though, try to interpret or search via your search engine the contents of the error, or reach out to us for assistance.
+Please do not worry if you saw a number of messages: those mean that the tidyverse loaded just fine. If you see an error, though, try to interpret or search via your search engine the contents of the error, or reach out to us for assistance.
