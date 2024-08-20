@@ -157,7 +157,7 @@ resources:
     -   You **may not** send otter.ai in your absence. Nor is the free version of otter.ai allowed to virtual classes.
     -   I will send a annonymized transcript to students upon request.
 
-# Syllabus review
+# [Syllabus review](https://docs.google.com/document/d/15MNefYajTAphhzW63VHOZC7ZmapvCdx0Y5VXRswLkdM/edit?usp=sharing) 
 
 Let's take a quick look!
 
