@@ -159,7 +159,7 @@ resources:
 
 # Syllabus review
 
-Let's take a quick look
+Let's take a quick look!
 
 # Tools for Reproducible Research
 
