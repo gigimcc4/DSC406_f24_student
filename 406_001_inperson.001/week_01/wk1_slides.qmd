@@ -157,6 +157,10 @@ resources:
     -   You **may not** send otter.ai in your absence. Nor is the free version of otter.ai allowed to virtual classes.
     -   I will send a annonymized transcript to students upon request.
 
+# Syllabus review
+
+Let's take a quick look
+
 # Tools for Reproducible Research
 
 GitHub, Posit, RStudio, Quarto, and R
