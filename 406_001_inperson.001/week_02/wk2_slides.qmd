@@ -410,8 +410,9 @@ install.packages("tidyverse")
 ::: incremental
 
 -   For the rest of class work in groups to complete the R Primer.
--   Turn the document into Moodle when you are done. Follow the directions in Moodle. Due by 5PM on Tuesday (Sept. 3).
+-   Turn the document into Moodle when you are done. Follow the directions in Moodle. Due by 5PM on Tuesday (Sept 3)
 -   For next week, Please add Github Educator and Copilot to the Posit site we are working in, see documents in Moodle.
+-   Practice coding 10 minutes a day!
 
 -   That's all! 😀
 
