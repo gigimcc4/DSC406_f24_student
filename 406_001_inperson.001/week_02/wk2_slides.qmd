@@ -262,7 +262,7 @@ mean(dist): This uses an anonymous function to calculate the mean of the dist co
 
 :::
 
-### numeric
+### Numeric
 
 ```{r}
 numeric_vector <-c(1234, 2345, 5678)
@@ -281,7 +281,7 @@ numeric_vector <-c(1234, 2345, 5678)
 ```
 
 
-### character
+### Character
 
 A character vector is a string it always is enclosed with "paranthesis"
 
@@ -299,6 +299,19 @@ character_vector <-c("dog", "cat", "bear")
 #
 
 
+```
+
+### Logical
+
+TRUE and FALSE only
+```{r}
+#| echo: true
+
+#create a logical vector
+logical_vector <- c(TRUE, FALSE, TRUE, FALSE, TRUE)
+
+#inspect the data
+logical_vector
 ```
 
 
