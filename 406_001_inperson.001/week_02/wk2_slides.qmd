@@ -1,0 +1,419 @@
+---
+format:
+  revealjs: 
+    slide-number: c/t
+    progress: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    logo: img/dsa.png
+    theme: [default, css/index.scss]
+    width: 1920
+    height: 1080
+    margin: 0.05
+resources:
+  - demo.pdf
+---
+
+<h1> Week 2 - August 27 </h1>
+
+<h2> Exploratory Data Analysis for Big Data </h2>
+
+<hr>
+
+<h3> Jeanne McClure, Ph.D </h3>
+
+<h3> DSC 406.001 </h3>
+<br>
+
+
+
+## Announcements
+
+  1) Did you complete all week 1 assignments? 
+    (Survey, Assignment 1, getting connected to Posit Cloud)
+  2) 6 Ways to get help
+  3) Remember to read the complete the Homework Assignment 1 today
+  
+
+## At the end of today you will be able to:
+
+::: incremental
+
+- Describe different data types and data structures in R
+- Create vectors, matrices, and dataframes in R
+- Have completed or almost finished R primer.
+
+:::
+
+# Questions???
+
+## R Syntax
+
+Similar to all languages, R syntax is composed of "parts of speech" that can be combined into sentences that express complex ideas: 
+
+::: incremental
+-   *Functions* are the verbs
+	-   **mean**()
+-   *Objects* are the nouns of the R language
+	+   mean(**student_grades**)
+-   *Arguments* are the adverbs or the direct object
+	+   mean(student_grades, **na.rm = FALSE**)
+-   As in any sentence, there is also “punctuation” or *operators*
+  +   average_grade **<-** mean(student_grades, na.rm = FALSE)
+  
+:::
+  
+::: {.notes}
+
+Functions: are everything you do in R. 
+
+Say you want to take the mean of a number, you would write mean( )
+Suppose you want to round a number, you would use round( ) and put the number inside the parentheses. Make sure to look in the console pane to see the answer.
+- Functions always include parenthesis
+
+
+
+Objects: are everything you have in R - things that you save like data frames in tabular form. Think back when you have used excel and you had to save your spread sheet and name it. That is comparable to an object. 
+
+To save something into an object we need to use the assignment operator <-.  The assignment operator is used for assignment operation. Operator that assigns a certain value to a variable and scope is within the function and outside as well. 
+
+
+:::
+  
+## More on object and operators?
+
+::::: panel-tabset
+
+### Object
+
+A object is a letter or word which takes (or contains) a value. We use the assignment 'operator', `<-` to create a variable and store some value in it.
+
+
+```{r}
+#| echo: true
+
+# assign a single varibale to an object
+x <- c("hello world")
+
+```
+
+### Arithmetic
+:::: {.columns}
+
+::: {.column width="45%" style="font-size: 50px" }
+
+R is a calculator!
+  
+Type this in your console:  
+```{r, echo = TRUE, eval = FALSE}
+2 + 3
+```
+  
+You'll get this: 
+```{r, echo = FALSE}
+2 + 3
+```
+
+:::
+
+
+::: {.column width="45%"}
+
+Arithmetic Operators 
+
+<img src="img/arithmetic.png" height="350px"/>
+:::
+
+::::
+
+
+### Logic
+
+:::: {.columns}
+
+::: {.column width="45%" style="font-size: 50px" }
+R is logical! 
+  
+What happens when you run this?  
+```{r, echo=TRUE, eval = FALSE}
+5 > 3
+```
+  
+Or this?
+```{r, echo=TRUE, eval = FALSE}
+5 == 3
+```
+
+Why not just a single `=` operator?
+
+:::
+
+
+
+::: {.column width="45%"}
+
+Logical Operators 
+
+<img src="img/logical.png" height="550px"/>
+
+:::
+::::
+
+### Assignment
+:::: {.columns}
+
+::: {.column width="45%" style="font-size: 50px" }
+
+**Bad Form**
+
+```{r, echo=TRUE}
+my_variable = 2 + 3 
+
+my_variable
+```
+
+:::
+
+
+
+::: {.column width="45%"}
+
+**Good Form**
+
+```{r, echo=TRUE}
+my_cat <- "Muffins"
+
+my_cat
+```
+
+:::
+::::
+
+### Pipes ....for chaining
+
+:::: {.columns}
+
+::: {.column width="45%" style="font-size: 50px" }
+
+**{magrittr} pipe**
+
+`%>%` pipe is part of the "tidyverse" package
+
+```{r}
+library(tidyverse)
+```
+
+
+```{r, echo=TRUE}
+cars %>% # think of the  pipe as saying "then"
+  filter(speed > 15) %>%
+  summarize(average_distance = mean(dist))
+```
+
+:::
+
+
+
+::: {.column width="45%"}
+
+<br/>
+
+**R pipe**
+
+```{r, echo=TRUE}
+cars |> # think of the  pipe as saying "then"
+  subset(speed > 15) |>
+  mean(dist)
+```
+
+:::
+::::
+
+
+:::::
+
+:::{.notes}
+
+magrittr pipe (%>%):
+
+filter(speed > 15): Filters rows where the speed is greater than 15.
+summarize(average_distance = mean(dist)): Calculates the average stopping distance (dist) for the filtered rows.
+
+Base R pipe (|>):
+R now provides a simple native forward pipe syntax |>
+subset(speed > 15): Similar to filter, it selects rows where speed is greater than 15.
+mean(dist): This uses an anonymous function to calculate the mean of the dist column from the filtered data.
+
+:::
+
+
+## What are the types of "vector"?
+
+::: panel-tabset
+
+### Vector
+
+::: incremental
+
+-   A vector in R is a one dimensional object that holds components of the same type.
+-   A vector contains values that are homogeneous primitive elements.  
+-   A vector is substantially a list of variables, and the simplest data structure in R.
+
+:::
+
+### numeric
+
+```{r}
+numeric_vector <-c(1234, 2345, 5678)
+```
+
+
+```{r}
+#| echo: true
+#| eval: false
+
+#create a numeric vector name the object numeric_vector
+#
+#
+
+
+```
+
+
+### character
+
+A character vector is a string it always is enclosed with "paranthesis"
+
+```{r}
+character_vector <-c("dog", "cat", "bear")
+```
+
+
+```{r}
+#| echo: true
+#| eval: false
+
+#create a character vector name the object character_vector
+#
+#
+
+
+```
+
+
+
+### Function to identify vectors
+
+We can confirm the vector by calling the class() function and passing the vector as input, i.e.,
+
+```{r}
+#| echo: true
+
+class(character_vector)
+
+```
+
+
+....you try to confirm the numeric vector we created
+
+```{r}
+#| echo: true
+#
+#
+
+```
+
+:::
+
+## Dataframes
+
+In R, dataframes are very flexible. This is often the most convenient structure to work with a dataset.
+
+You can combine the numeric and character vectors into a data frame in R using the data.frame() function. 
+
+How do you think we do it?
+
+<br/>
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+```{r}
+#| echo: true
+#
+#
+```
+:::
+
+::: {.column width="45%"}
+Answer **👉  **⤵**
+
+::: {style="font-size: 50px"}
+::: fragment
+```{r echo=TRUE}
+# Load tidyverse package 
+
+df <- data.frame(Numbers = numeric_vector, Animals = character_vector)
+df
+
+```
+:::
+:::
+:::
+
+::::
+
+## Packages
+
+:::: panel-tabset
+
+Finally lets talk a little bit about packages
+
+### Install Pacakges
+
+- First time using a package use `install.packages("")`
+- Do this ONLY ONCE in the "console"
+- Notice that you use "parenthesis" in the function
+
+:::{style="font-size: 50px"}
+```{r eval = FALSE, echo=TRUE, message = FALSE, warning=FALSE}
+
+# Install Packages
+install.packages("tidyverse")
+
+
+```
+:::
+
+
+
+### Load package
+
+- IN the script, **every time** use the function `library()` to call the package
+
+::: {style="font-size: 50px"}
+```{r echo=TRUE}
+# Load tidyverse package 
+#
+#
+
+```
+:::
+
+::::
+
+
+## What's next?
+
+::: incremental
+
+-   For the rest of class work in groups to complete the R Primer.
+-   Turn the document into Moodle when you are done. Follow the directions in Moodle. Due by 5PM on Tuesday (Sept. 3).
+-   For next week, Please add Github Educator and Copilot to the Posit site we are working in, see documents in Moodle.
+
+-   That's all! 😀
+
+:::
+

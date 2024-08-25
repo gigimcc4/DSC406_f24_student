@@ -27,6 +27,14 @@ resources:
 
 <br>
 
+## Take a quick survey
+
+Please take a few minutes and fill out the survey
+
+In Moodle under week 1, #1
+
+https://forms.gle/gihoEAQDXSKSbjBm8 (opens in new window)
+
 ## Welcome to Exploratory Data Analysis (EDA)
 
 ::: columns
@@ -157,7 +165,7 @@ resources:
     -   You **may not** send otter.ai in your absence. Nor is the free version of otter.ai allowed to virtual classes.
     -   I will send a annonymized transcript to students upon request.
 
-# [Syllabus review](https://docs.google.com/document/d/15MNefYajTAphhzW63VHOZC7ZmapvCdx0Y5VXRswLkdM/edit?usp=sharing) 
+# [Syllabus review](https://docs.google.com/document/d/15MNefYajTAphhzW63VHOZC7ZmapvCdx0Y5VXRswLkdM/edit?usp=sharing)
 
 Let's take a quick look!
 
@@ -177,7 +185,6 @@ Reproducible research involves two broad sets of tools:
 
 ::: columns
 ::: {.column width="50%"}
-
 [GitHub](https://github.com) is a web-based platform used for version control, collaboration, and sharing of a project's code, documents, and other related files.
 :::
 
@@ -239,7 +246,6 @@ Posit Cloud (formerly RStudio Cloud) provides a powerful set of data science too
 ::: notes
 **Speaker Notes:**
 
-
 RStudio is an integrated development environment (IDE) for R and Python and includes a console for running R code directly, syntax-highlighting editor that supports direct code execution in the source pane, and tools for plotting, history, debugging, and management of research projects in the Environment and Files panes.
 
 RStudio is basically your home for all of the files, images, reports, and code that are used in a research project given project.When you create a "project" with RStudio, it's straightforward to divide your work into multiple contexts, each with their own working directory, workspace, history, and source documents.
@@ -288,10 +294,9 @@ It is freely available have large and active communities and a vast number of li
 ::: notes
 **Speaker Notes:**
 
-Underlying all of this is R one of the most popular programming languages used in data science, statistical analysis, and machine learning. That  platform is rich and can be used to create a wide range of static and dynamic outputs for communicating your research.
+Underlying all of this is R one of the most popular programming languages used in data science, statistical analysis, and machine learning. That platform is rich and can be used to create a wide range of static and dynamic outputs for communicating your research.
 
 Let's create a new R script so we can begin working with R to help illustrate a simple research workflow and analyze some data.
-
 :::
 
 ## Let's dive in!
@@ -299,5 +304,5 @@ Let's create a new R script so we can begin working with R to help illustrate a 
 -   Go to [Posit Cloud](https://posit.cloud) workspaces.
 -   Sign up with your NCSU Google address
     -   YES, click Google and add use your NCSU credentials
-    
+
 ![](img/posit_login.svg){fig-align="center" width="50%"}

@@ -1,7 +1,7 @@
 ---
 title: "R Primer - WA_01"
 subtitle: "DSC_406.001"
-author: "ADD YOUR NAME HERE"
+author: "Jeanne"
 date: today 
 format:
   html:
@@ -46,10 +46,14 @@ Let's get started!
 
 Add a code chunk with a method of your choice.
 
+```{r}
+
+```
+
 #### Code Chunk Options:
 
 | Option  | Description                                                                                                                                                                                                                          |
-|------------------|------------------------------------------------------|
+|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | eval    | Evaluate the code chunk (if false, just echos the code into the output)                                                                                                                                                              |
 | echo    | Include the source code in output output Include the results of executing the code in the output (true, false, or asis to indicate that the output is raw markdown and should not have any of Quarto's standard enclosing markdown). |
 | warning | Include warnings in the output.                                                                                                                                                                                                      |

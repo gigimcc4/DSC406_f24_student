@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="wk1_slides_files/libs/clipboard/clipboard.min.js"></script>
-<script src="wk1_slides_files/libs/quarto-html/tabby.min.js"></script>
-<script src="wk1_slides_files/libs/quarto-html/popper.min.js"></script>
-<script src="wk1_slides_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="wk1_slides_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="wk1_slides_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="wk1_slides_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="wk1_slides_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="wk2_slides_files/libs/clipboard/clipboard.min.js"></script>
+<script src="wk2_slides_files/libs/quarto-html/tabby.min.js"></script>
+<script src="wk2_slides_files/libs/quarto-html/popper.min.js"></script>
+<script src="wk2_slides_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="wk2_slides_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="wk2_slides_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="wk2_slides_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="wk2_slides_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.53">
 
-  <title>wk1_slides</title>
+  <title>wk2_slides</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="wk1_slides_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="wk1_slides_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="wk2_slides_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="wk2_slides_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -28,14 +28,79 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="wk1_slides_files/libs/revealjs/dist/theme/quarto.css">
-  <link href="wk1_slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="wk1_slides_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="wk1_slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="wk1_slides_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="wk1_slides_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="wk1_slides_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="wk2_slides_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="wk2_slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="wk2_slides_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="wk2_slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="wk2_slides_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="wk2_slides_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="wk2_slides_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -330,7 +395,7 @@
 <section class="slide level2">
 
 <h1>
-Week 1 - August 20
+Week 2 - August 27
 </h1>
 <h2>
 Exploratory Data Analysis for Big Data
@@ -344,342 +409,306 @@ DSC 406.001
 </h3>
 <p><br></p>
 </section>
-<section id="take-a-quick-survey" class="slide level2">
-<h2>Take a quick survey</h2>
-<p>Please take a few minutes and fill out the survey</p>
-<p>In Moodle under week 1, #1</p>
-<p>https://forms.gle/gihoEAQDXSKSbjBm8 (opens in new window)</p>
+<section id="announcements" class="slide level2">
+<h2>Announcements</h2>
+<ol type="1">
+<li>Did you complete all week 1 assignments? (Survey, Assignment 1, getting connected to Posit Cloud)</li>
+<li>6 Ways to get help</li>
+<li>Remember to read the complete the Homework Assignment 1 today</li>
+</ol>
 </section>
-<section id="welcome-to-exploratory-data-analysis-eda" class="slide level2">
-<h2>Welcome to Exploratory Data Analysis (EDA)</h2>
-<div class="columns">
-<div class="column" style="font-size: 45px">
-<ul>
-<li><p>Data science is an exciting discipline that allows you to turn raw data into understanding, insight, and knowledge.</p></li>
-<li><p>We’re going to learn to do this in a <code>tidy</code> way – more on that later!</p></li>
-<li><p>This is a course on introduction to Exploratory Data Analysis, an important step in the Data Science lifecycle</p></li>
-</ul>
-</div><div class="column" style="width:5%;">
-
-</div><div class="column" style="width:45%;">
-<p><img data-src="img/dsa_lfcycle.svg" class="absolute fragment" style="top: 300px; left: 900px; width: 1000px; "></p>
-</div></div>
-</section>
-<section id="what-is-eda" class="slide level2">
-<h2>What is EDA?</h2>
-<div class="columns">
-<div class="column" style="font-size: 45px">
-<blockquote>
-<p>EDA involves <strong>investigating and summarizing</strong> data sets to <strong>uncover patterns</strong>, <strong>spot anomalies</strong>, and <strong>test hypotheses</strong>, using statistical graphics and other data visualization methods.</p>
-</blockquote>
-<p><em>This process helps us to understand underlying trends in data before applying more complex analytical techniques.</em></p>
-</div><div class="column" style="width:5%;">
-
-</div><div class="column" style="width:45%;">
-<p><img src="img/eda_graph_1.svg" height="750px"></p>
-</div></div>
-<aside class="notes">
-<p><strong>Speaker notes</strong></p>
-<p><strong>EDA</strong></p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="what-will-we-learn-in-this-class" class="slide level2">
-<h2>What will we learn in this class?</h2>
-<div class="fragment">
-<ul>
-<li>Important Packages for Exploratory Data Analysis</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Descriptive statistics, Frequency, Tables and summarization</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Univariate Analysis (Distribution of data &amp; Graphical Analysis)</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Bivariate Analysis (Graphical Analysis, Relationships, Correlation)</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Creating Graphs (Bar, histogram, boxplot, scatter and others)</li>
-</ul>
-</div>
-</section>
-<section id="what-about-tests" class="slide level2">
-<h2>What about tests?</h2>
-<p><img data-src="img/zero_test.svg" class="absolute fragment" style="top: 125px; left: 400px; width: 1100px; "></p>
-</section>
-<section id="how-is-the-class-structured" class="slide level2">
-<h2>How is the class structured</h2>
-<div class="fragment">
-<ul>
-<li>20 - 25 min interactive lecture</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>25 - 30 In-class labs</li>
-</ul>
-</div>
-</section>
-<section id="what-about-out-of-class-work" class="slide level2">
-<h2>What about out of class work?</h2>
-<div class="fragment">
-<ul>
-<li>What ever we don’t finish in class</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>A software walkthough and setup</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>4 Interactive Discussion/Other homework</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Project (3 1/2 parts)</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>DUE by 5PM on the due date.</li>
-</ul>
-</div>
-</section>
-<section id="what-is-this-project-you-speak-of" class="slide level2">
-<h2>What is this project you speak of?</h2>
-<div class="fragment">
-<ul>
-<li>Worth 50% of your grade</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li><p>3 parts</p>
-<ul>
-<li>Submit a dataset based on motivation/interest.</li>
-<li>Submit a proposal based on what data moves, guiding questions…etc.</li>
-<li>Give a presentation (Powerpoint/Google/Quarto).</li>
-<li>Submit a final written product in quarto (published).</li>
-<li>Can work individually or in a group.</li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="what-type-of-class-is-this" class="slide level2">
-<h2>What type of class is this?</h2>
-<div class="fragment">
-<ul>
-<li>This is an in-person class (attendance is being taken).
-<ul>
-<li>Absence Policy. Students are permitted 3 excused absences per absent policy.</li>
-<li>Beyond this, each additional absence will result in a 2-point deduction from the final grade.</li>
-</ul></li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Two classes will be virtual (attendance required)
-<ul>
-<li>You <strong>may not</strong> send otter.ai in your absence. Nor is the free version of otter.ai allowed to virtual classes.</li>
-<li>I will send a annonymized transcript to students upon request.</li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="syllabus-review" class="title-slide slide level1 center">
-<h1><a href="https://docs.google.com/document/d/15MNefYajTAphhzW63VHOZC7ZmapvCdx0Y5VXRswLkdM/edit?usp=sharing">Syllabus review</a></h1>
-<p>Let’s take a quick look!</p>
-</section>
-
-<section>
-<section id="tools-for-reproducible-research" class="title-slide slide level1 center">
-<h1>Tools for Reproducible Research</h1>
-<p>GitHub, Posit, RStudio, Quarto, and R</p>
-</section>
-<section id="tool-types" class="slide level2">
-<h2>Tool Types</h2>
-<p>Reproducible research involves two broad sets of tools:</p>
-<ul>
-<li><p><strong>A Reproducible Research Environment</strong>, that includes the statistical tools you need to run your analyses; automatically track the provenance of data, analyses, and results; and to package them for redistribution”.</p></li>
-<li><p><strong>A Reproducible Research Publisher</strong> that prepares dynamic documents for presenting results and is easily linked to the reproducible research environment.</p></li>
-</ul>
-</section>
-<section id="github" class="slide level2">
-<h2>GitHub</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><a href="https://github.com">GitHub</a> is a web-based platform used for version control, collaboration, and sharing of a project’s code, documents, and other related files.</p>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/github.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
-</figure>
-</div>
-</div></div>
-<aside class="notes">
-<p><strong>Speaker Notes:</strong></p>
-<p>GitHub is an interface and cloud hosting service built on top of the Git version control system. GitHub was not explicitly designed to host research projects or even data, but for programmers to work together to build computer programs. This seems very far from reproducible research but remember that as reproducible researchers, we are building projects out of interconnected text files. In important ways, this is exactly the same as building a computer program and offers many highly developed and robust features for reproducible researchers.</p>
-<p>We won’t be using GitHub directly, but I did want to note that if you click the link, it will take you to our GitHub organization site where you will find our RStudio Projects stored as Repositories, or repos, including the laser-orientation repository you just opened.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="posit-cloud" class="slide level2">
-<h2>Posit Cloud</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>The EDA course will use <a href="https://posit.cloud">Posit Cloud</a> workspaces.</p>
-<p>Posit Cloud lets you access <a href="https://posit.co">Posit</a>’s powerful set of data science tools like <a href="https://posit.co/products/open-source/rstudio/">RStudio IDE</a> and <a href="https://jupyter.org">Jupyter Notebooks</a> right in your browser.</p>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/posit-cloud.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
-</figure>
-</div>
-</div></div>
-<aside class="notes">
-<p><strong>Speaker Notes</strong>:</p>
-<p>Posit Cloud (formerly RStudio Cloud) provides a powerful set of data science tools right in your browser with no installation or complex configuration required.All of our Module materials will be access through Posit Cloud this year so we encourage you bookmark posit.cloud in your browser.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="rstudio" class="slide level2">
-<h2>RStudio</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
+<section id="at-the-end-of-today-you-will-be-able-to" class="slide level2">
+<h2>At the end of today you will be able to:</h2>
 <div>
-<p><a href="https://posit.co/products/open-source/rstudio/">RStudio</a> is an integrated development environment (IDE) for R and Python and includes:</p>
 <ul>
-<li><p>a <strong>Console</strong> for running R code directly,</p></li>
-<li><p>syntax-highlighting editor that supports direct code execution in the <strong>Source</strong> pane,</p></li>
-<li><p>tools for plotting, history, debugging, and management of research projects in the <strong>Environment</strong> and <strong>Files</strong> panes.</p></li>
+<li class="fragment">Describe different data types and data structures in R</li>
+<li class="fragment">Create vectors, matrices, and dataframes in R</li>
+<li class="fragment">Have completed or almost finished R primer.</li>
 </ul>
 </div>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/rstudio.png" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
-</div></div>
-<aside class="notes">
-<p><strong>Speaker Notes:</strong></p>
-<p>RStudio is an integrated development environment (IDE) for R and Python and includes a console for running R code directly, syntax-highlighting editor that supports direct code execution in the source pane, and tools for plotting, history, debugging, and management of research projects in the Environment and Files panes.</p>
-<p>RStudio is basically your home for all of the files, images, reports, and code that are used in a research project given project.When you create a “project” with RStudio, it’s straightforward to divide your work into multiple contexts, each with their own working directory, workspace, history, and source documents.</p>
-<p>&lt; Provide a brief walkthrough of the different panes and discuss what they are used for including how they might make their own R Project is they so desired. &gt;</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
-<section id="quarto" class="slide level2">
-<h2>Quarto</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><a href="https://quarto.org">Quarto</a> is used with Python and R to create reproducible, production quality:</p>
-<ul>
-<li><p><a href="https://laser-institute.github.io/laser-website/">websites</a></p></li>
-<li><p><a href="https://laser-institute.github.io/laser-orientation/orientation-code-along.html#/title-slide">presentations</a></p></li>
-<li><p><a href="https://rpubs.com/sbkellogg/dashboard-example">dashboards</a></p></li>
-<li><p><a href="https://datascienceineducation.com">books</a></p></li>
-<li><p>journal articles and much <a href="https://quarto.org/docs/guide/">more</a>!</p></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/quarto.png" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
-</div></div>
+<section>
+<section id="questions" class="title-slide slide level1 center">
+<h1>Questions???</h1>
+
 </section>
-<section id="r-python" class="slide level2">
-<h2>R &amp; Python</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>The EDA course uses <a href="https://www.r-project.org/about.html">R</a> one of the most popular programming languages for data science, statistical analysis, and machine learning.</p>
-<p><br></p>
-<p>It is freely available have large and active communities and a vast number of libraries and frameworks for Exploratory Data Analysis.</p>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/r-script.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
-</figure>
-</div>
-</div></div>
-<aside class="notes">
-<p><strong>Speaker Notes:</strong></p>
-<p>Underlying all of this is R one of the most popular programming languages used in data science, statistical analysis, and machine learning. That platform is rich and can be used to create a wide range of static and dynamic outputs for communicating your research.</p>
-<p>Let’s create a new R script so we can begin working with R to help illustrate a simple research workflow and analyze some data.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="lets-dive-in" class="slide level2">
-<h2>Let’s dive in!</h2>
+<section id="r-syntax" class="slide level2">
+<h2>R Syntax</h2>
+<p>Similar to all languages, R syntax is composed of “parts of speech” that can be combined into sentences that express complex ideas:</p>
+<div>
 <ul>
-<li>Go to <a href="https://posit.cloud">Posit Cloud</a> workspaces.</li>
-<li>Sign up with your NCSU Google address
+<li class="fragment"><em>Functions</em> are the verbs
 <ul>
-<li>YES, click Google and add use your NCSU credentials</li>
+<li class="fragment"><strong>mean</strong>()</li>
 </ul></li>
+<li class="fragment"><em>Objects</em> are the nouns of the R language
+<ul>
+<li class="fragment">mean(<strong>student_grades</strong>)</li>
+</ul></li>
+<li class="fragment"><em>Arguments</em> are the adverbs or the direct object
+<ul>
+<li class="fragment">mean(student_grades, <strong>na.rm = FALSE</strong>)</li>
+</ul></li>
+<li class="fragment">As in any sentence, there is also “punctuation” or <em>operators</em></li>
+<li class="fragment">average_grade <strong>&lt;-</strong> mean(student_grades, na.rm = FALSE)</li>
 </ul>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/posit_login.svg" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
-</figure>
+</div>
+<aside class="notes">
+<p>Functions: are everything you do in R.</p>
+<p>Say you want to take the mean of a number, you would write mean( ) Suppose you want to round a number, you would use round( ) and put the number inside the parentheses. Make sure to look in the console pane to see the answer. - Functions always include parenthesis</p>
+<p>Objects: are everything you have in R - things that you save like data frames in tabular form. Think back when you have used excel and you had to save your spread sheet and name it. That is comparable to an object.</p>
+<p>To save something into an object we need to use the assignment operator &lt;-. The assignment operator is used for assignment operation. Operator that assigns a certain value to a variable and scope is within the function and outside as well.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="more-on-object-and-operators" class="slide level2">
+<h2>More on object and operators?</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Object</a></li><li><a href="#tabset-1-2">Arithmetic</a></li><li><a href="#tabset-1-3">Logic</a></li><li><a href="#tabset-1-4">Assignment</a></li><li><a href="#tabset-1-5">Pipes ….for chaining</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<p>A object is a letter or word which takes (or contains) a value. We use the assignment ‘operator’, <code>&lt;-</code> to create a variable and store some value in it.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># assign a single varibale to an object</span></span>
+<span id="cb1-2"><a href=""></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"hello world"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-1-2">
+<div class="columns">
+<div class="column" style="font-size: 50px">
+<p>R is a calculator!</p>
+<p>Type this in your console:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You’ll get this:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:45%;">
+<p>Arithmetic Operators</p>
+<p><img src="img/arithmetic.png" height="350px"></p>
+</div></div>
+</div>
+<div id="tabset-1-3">
+<div class="columns">
+<div class="column" style="font-size: 50px">
+<p>R is logical!</p>
+<p>What happens when you run this?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="dv">5</span> <span class="sc">&gt;</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Or this?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="dv">5</span> <span class="sc">==</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Why not just a single <code>=</code> operator?</p>
+</div><div class="column" style="width:45%;">
+<p>Logical Operators</p>
+<p><img src="img/logical.png" height="550px"></p>
+</div></div>
+</div>
+<div id="tabset-1-4">
+<div class="columns">
+<div class="column" style="font-size: 50px">
+<p><strong>Bad Form</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a>my_variable <span class="ot">=</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span> </span>
+<span id="cb6-2"><a href=""></a></span>
+<span id="cb6-3"><a href=""></a>my_variable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:45%;">
+<p><strong>Good Form</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a>my_cat <span class="ot">&lt;-</span> <span class="st">"Muffins"</span></span>
+<span id="cb8-2"><a href=""></a></span>
+<span id="cb8-3"><a href=""></a>my_cat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Muffins"</code></pre>
+</div>
+</div>
+</div></div>
+</div>
+<div id="tabset-1-5">
+<div class="columns">
+<div class="column" style="font-size: 50px">
+<p><strong>{magrittr} pipe</strong></p>
+<p><code>%&gt;%</code> pipe is part of the “tidyverse” package</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>cars <span class="sc">%&gt;%</span> <span class="co"># think of the  pipe as saying "then"</span></span>
+<span id="cb10-2"><a href=""></a>  <span class="fu">filter</span>(speed <span class="sc">&gt;</span> <span class="dv">15</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href=""></a>  <span class="fu">summarize</span>(<span class="at">average_distance =</span> <span class="fu">mean</span>(dist))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  average_distance
+1            59.75</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:45%;">
+<p><br></p>
+<p><strong>R pipe</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>cars <span class="sc">|&gt;</span> <span class="co"># think of the  pipe as saying "then"</span></span>
+<span id="cb12-2"><a href=""></a>  <span class="fu">subset</span>(speed <span class="sc">&gt;</span> <span class="dv">15</span>) <span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a href=""></a>  <span class="fu">mean</span>(dist)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>magrittr pipe (%&gt;%):</p>
+<p>filter(speed &gt; 15): Filters rows where the speed is greater than 15. summarize(average_distance = mean(dist)): Calculates the average stopping distance (dist) for the filtered rows.</p>
+<p>Base R pipe (|&gt;): R now provides a simple native forward pipe syntax |&gt; subset(speed &gt; 15): Similar to filter, it selects rows where speed is greater than 15. mean(dist): This uses an anonymous function to calculate the mean of the dist column from the filtered data.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="what-are-the-types-of-vector" class="slide level2">
+<h2>What are the types of “vector”?</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Vector</a></li><li><a href="#tabset-2-2">numeric</a></li><li><a href="#tabset-2-3">character</a></li><li><a href="#tabset-2-4">Function to identify vectors</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div>
+<ul>
+<li class="fragment">A vector in R is a one dimensional object that holds components of the same type.</li>
+<li class="fragment">A vector contains values that are homogeneous primitive elements.<br>
+</li>
+<li class="fragment">A vector is substantially a list of variables, and the simplest data structure in R.</li>
+</ul>
+</div>
+</div>
+<div id="tabset-2-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="co">#create a numeric vector name the object numeric_vector</span></span>
+<span id="cb14-2"><a href=""></a><span class="co">#</span></span>
+<span id="cb14-3"><a href=""></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-2-3">
+<p>A character vector is a string it always is enclosed with “paranthesis”</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="co">#create a character vector name the object character_vector</span></span>
+<span id="cb15-2"><a href=""></a><span class="co">#</span></span>
+<span id="cb15-3"><a href=""></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-2-4">
+<p>We can confirm the vector by calling the class() function and passing the vector as input, i.e.,</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">class</span>(character_vector)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+</div>
+<p>….you try to confirm the numeric vector we created</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="co">#</span></span>
+<span id="cb18-2"><a href=""></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="dataframes" class="slide level2">
+<h2>Dataframes</h2>
+<p>In R, dataframes are very flexible. This is often the most convenient structure to work with a dataset.</p>
+<p>You can combine the numeric and character vectors into a data frame in R using the data.frame() function.</p>
+<p>How do you think we do it?</p>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="co">#</span></span>
+<span id="cb19-2"><a href=""></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:45%;">
+<p>Answer <strong>👉 </strong>⤵**</p>
+<div style="font-size: 50px">
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="co"># Load tidyverse package </span></span>
+<span id="cb20-2"><a href=""></a></span>
+<span id="cb20-3"><a href=""></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Numbers =</span> numeric_vector, <span class="at">Animals =</span> character_vector)</span>
+<span id="cb20-4"><a href=""></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Numbers Animals
+1    1234     dog
+2    2345     cat
+3    5678    bear</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="packages" class="slide level2">
+<h2>Packages</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Install Pacakges</a></li><li><a href="#tabset-3-2">Load package</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<ul>
+<li>First time using a package use <code>install.packages("")</code></li>
+<li>Do this ONLY ONCE in the “console”</li>
+<li>Notice that you use “parenthesis” in the function</li>
+</ul>
+<div style="font-size: 50px">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a><span class="co"># Install Packages</span></span>
+<span id="cb22-2"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div id="tabset-3-2">
+<ul>
+<li>IN the script, <strong>every time</strong> use the function <code>library()</code> to call the package</li>
+</ul>
+<div style="font-size: 50px">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="co"># Load tidyverse package </span></span>
+<span id="cb23-2"><a href=""></a><span class="co">#</span></span>
+<span id="cb23-3"><a href=""></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="whats-next" class="slide level2">
+<h2>What’s next?</h2>
+<div>
+<ul>
+<li class="fragment"><p>For the rest of class work in groups to complete the R Primer.</p></li>
+<li class="fragment"><p>Turn the document into Moodle when you are done. Follow the directions in Moodle. Due by 5PM on Tuesday (Sept.&nbsp;3).</p></li>
+<li class="fragment"><p>For next week, Please add Github Educator and Copilot to the Posit site we are working in, see documents in Moodle.</p></li>
+<li class="fragment"><p>That’s all! 😀</p></li>
+</ul>
 </div>
 <div class="quarto-auto-generated-content">
 <p><img src="img/dsa.png" class="slide-logo"></p>
@@ -692,20 +721,20 @@ DSC 406.001
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="wk1_slides_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="wk2_slides_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="wk1_slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="wk1_slides_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="wk1_slides_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="wk1_slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="wk1_slides_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="wk1_slides_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="wk2_slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="wk2_slides_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="wk2_slides_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="wk2_slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="wk2_slides_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="wk2_slides_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="wk1_slides_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="wk1_slides_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="wk1_slides_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="wk1_slides_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="wk2_slides_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="wk2_slides_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="wk2_slides_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="wk2_slides_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -900,6 +929,44 @@ DSC 406.001
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
