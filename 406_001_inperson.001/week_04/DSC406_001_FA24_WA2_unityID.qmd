@@ -97,7 +97,7 @@ Due to the length please find brief data descriptions in the published document.
 
 ```
 
-2.  Data Structure
+# 2.  Data Structure
 
 #### **👉 2a. Your Turn** **⤵**
 
@@ -305,8 +305,7 @@ You should take a moment and inspect your data using a function of your choice
 
 ```
 
-**Inspect the filtered data:**
-Use `head()` or `summary()` to review the characteristics of the filtered data.
+**Inspect the filtered data:** Use `head()` or `summary()` to review the characteristics of the filtered data.
 
 ```{r}
 # ADD YOUR CODE BELOW with comments
@@ -372,8 +371,7 @@ Reflect on what they notice about the distribution of total food spending across
 
 ```
 
-**Inspect the grouped data:**
-Use a function like `summary()` or `head()` to inspect the properties of the grouped data.
+**Inspect the grouped data:** Use a function like `summary()` or `head()` to inspect the properties of the grouped data.
 
 ```{r}
 # ADD YOUR CODE BELOW with comments

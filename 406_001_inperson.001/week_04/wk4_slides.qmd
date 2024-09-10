@@ -32,16 +32,22 @@ resources:
 
   1) **NO Class, September 17** (next week) - wellness day❤️‍
   
+  2) **WA2 - food security** - due September 24th
+  
+  3) **Project part 1** - data set and motivation due Oct 8th
+  
 
 ## At the end of today you will be able to:
 
 ::: incremental
 
--   Understand data Wrangling as a concept
+-   Reading in data
+
+-   Mapping and structure
+
+-   Wrangling as a concept
 
 -   Use `dplyr::functions`
-
--  
 
 :::
 
@@ -156,6 +162,8 @@ Function Used: `read_csv()` This is a function from the readr package (part of t
 
 read_csv("data/fss_survey_df.csv")
 
+df <- read_csv("data/fss_survey_df.csv")
+
 ```
 <br/>
 Code: read_csv("data/fss_survey_df.csv")
@@ -189,6 +197,23 @@ File Path: "data/fss_survey_df.csv"
 <br/>
 
 **fss_surveydf.csv**: The name of the file being written to, located in the data directory.
+
+## Data Mapping and Structure
+
+Getting to know your data....
+
+-   str()
+
+-   class()
+
+-   glimpse()
+
+-   summary()
+
+-   dim()
+
+
+
 
 ## Data Wrangling
 
