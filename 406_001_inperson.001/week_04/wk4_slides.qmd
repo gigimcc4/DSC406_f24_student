@@ -1,0 +1,352 @@
+
+---
+format:
+  revealjs: 
+    slide-number: c/t
+    progress: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    logo: img/dsa.png
+    theme: [default, css/index.scss]
+    width: 1920
+    height: 1080
+    margin: 0.05
+resources:
+  - demo.pdf
+---
+
+<h1> Week 4 - September 7, 2024 </h1>
+
+<h2> Exploratory Data Analysis for Big Data </h2>
+
+<hr>
+
+<h3> Jeanne McClure, Ph.D </h3>
+
+<h3> DSC 406.001 </h3>
+<br>
+
+
+## Announcements
+
+  1) **NO Class, September 17** (next week) - wellness day❤️‍
+  
+
+## At the end of today you will be able to:
+
+::: incremental
+
+-   Understand data Wrangling as a concept
+
+-   Use `dplyr::functions`
+
+-  
+
+:::
+
+# Questions???
+
+
+## 🎗️Best Practices for Reproducible Research
+
+1.  Document everything!
+
+2.  Everything is a (text) file.
+
+3.  All files should be human readable.
+
+4.  Explicitly tie your files together.
+
+5.  Have a plan to organize, store, and make your files available.
+
+To learn more: [Reproducible research with R and R studio (3rd Edition)](https://github.com/christophergandrud/Rep-Res-Book). CRC Press.
+
+::: notes
+Speaker Notes:
+
+1.  **Document everything!** Obviously, in order to reproduce your research, others must be able to know what you did. Documentation of includes, but is not limited to the data itself, analysis code, the write-up of results, and explanations of these files (e.g. data set codebooks, software information, and so on).
+
+2.  **Everything is a (text) file**. Ideally, your documentation will be stored in the simplest file format possible to store this information. Usually the simplest file format is the humble, but versatile, text file. Text files are extremely nimble and can used your data in, like in comma-separated values (CSV) format for example, can contain your analysis code in files, and can be the basis for publishable formats like articles, webpages, books, etc. using markup languages such as Markdown. One reason reproducible research is best stored in text fles is that this helps future-proof your research
+
+3.  **All files should be human readable.** Treat all of your research fles as if someone who has not worked on the project will, in the future, try to understand them. Computer code is a way of communicating with the computer. It is 'machine readable' in that the computer is able to use it to understand what you want to do.2 However, there is a very good chance that other people (or you six months in the future) will not understand what you were telling the computer. So, you need to make all of your files 'human readable'. To make them human readable, you should comment on your code with the goal of communicating its design and purpose.
+
+4.  **Explicitly tie your files together.** Researchers often do not explicitly document the relationships between fles that they used in their research. For example, the results of an analysis--a table or figure--may be copied and pasted into a presentation document. It can be very difficult for future researchers to trace the table or fgure back to a particular statistical model and a particular data set without clear documentation. Therefore, it is important to make the links between your files explicit.
+
+5.  **Have a plan to organize, store, and make your files available**. Finally, in order for independent researchers to reproduce your work, they need to be able access the fles that instruct them how to do this. Files also need to be organized so that independent researchers can figure out how they ft together. So, from the beginning of your research process, you should have a plan for organizing your files and a way to make them accessible.
+
+**Learn More**
+
+We've only scratched the surface Reproducible Research practices and highlight recommend the book Reproducible research with R and R studio to learn more.
+:::
+
+## Packages
+
+:::: panel-tabset
+
+### Tidyverse Suite
+
+
+[![](img/tidyverse.png){width="800"}](https://www.tidyverse.org/)
+
+### Manipulating data
+
+::: incremental
+-   `readr`: reads flat rectangular data. works with both comma-separated and tab-separated values.
+
+-   `readxl`: reads in MS excel files (needs additional install and loading).
+
+-   `jsonlite`: Can import JSON format which is usually provided from web services.
+
+-   `httr`,`rvest`: Both can get data from the web like web scrapping data, or APIs.
+
+-   `DBI`: reads in data from relational databases (Microsoft SQL, PostgreSQL, MySQL, and MariaDB)
+:::
+
+### E-C-F Packages
+
+Examining, Cleaning and Filtering data.
+
+:::incremental
+
+-   `dplyr`: provides functions to make examining, cleaning and filtering super fast and easy.
+
+-   `tidyr`: provides functions to organize messy data.
+
+-   `stringr`: provides functions for working with string data.
+
+-   `forcats`: provides functions to work with factors.
+
+-   `lubridate`: allows for easy manipulation of date-time data.
+
+-   `blobr`: allows for manipulation of binary data (not ASCII text).
+
+:::
+
+### Visualize data
+
+:::incremental
+
+-   `ggplot2`: Industry standard "grammar of graphics"
+
+-   `plotly`: Using ggplot language but includes interactivity in the graph
+
+-   `Scatterplot3d`: Creates 3D scatter plots.
+
+:::
+
+### Packages for Automation
+
+:::incremental
+-   [`GGally`](https://ggobi.github.io/ggally/): GGPLOT extemsion, allows for creating matrix scattered plots.
+
+-   [`skimr`](https://cran.r-project.org/web/packages/skimr/vignettes/skimr.html): Key insights and metrics for quick assessments of data quality and distribution.
+
+-   [`DataExplorer`](https://cran.r-project.org/web/packages/DataExplorer/vignettes/dataexplorer-intro.html): Provides reports, visual summaries, and transformations with minimal coding effort.
+
+:::
+
+::::
+
+## Reading in CSV
+
+Function Used: `read_csv()` This is a function from the readr package (part of the tidyverse), which is used here to read in the dataframe to a CSV file.
+<br/>
+```{r, eval=FALSE, echo=TRUE}
+
+read_csv("data/fss_survey_df.csv")
+
+```
+<br/>
+Code: read_csv("data/fss_survey_df.csv")
+<br/>
+
+File Path: "data/fss_survey_df.csv"
+<br/>
+
+**data/**: The directory or folder where the file will be saved.
+<br/>
+
+**fss_survey_df.csv**: The name of the file being written to, located in the data directory.
+
+## Writing a CSV
+
+Function Used: write_csv(). This is a function from the readr package (part of the tidyverse), which is used here to write the fss_surveydf data frame to a CSV file.
+<br/>
+```{r, eval=FALSE, echo=TRUE}
+
+write_csv(fss_survey_df, "data/fss_survey_df.csv")
+
+```
+<br/> 
+Code: write_csv(fss_survey_df, "data/fss_survey_df.csv")
+<br/>
+
+File Path: "data/fss_survey_df.csv"
+<br/>
+
+**data/**: The directory or folder where the file will be saved.
+<br/>
+
+**fss_surveydf.csv**: The name of the file being written to, located in the data directory.
+
+## Data Wrangling
+
+:::: panel-tabset
+
+### Definiton
+
+**Most important step in EDA** Spend the MOST time doing this!
+<br/><br/>
+*Data wrangling is the process of transforming raw data into a format more suitable for analysis. This transformation typically* **involves three main steps:**
+<br/>
+
+::: incremental
+1.  **Gather (Collect):** Obtaining the data from various sources.
+
+2.  **Assess (Evaluate):** Inspecting the data for errors or anomalies and evaluating its quality and structure.
+
+3.  **Clean:** Making corrections to improve the dataset’s quality and organization.
+:::
+
+### Example
+
+
+**Example:**
+
+Imagine you have a dataset with information about students. You might want to analyze only the data for students who have graduated. Here’s what you might do:
+
+::: incremental
+-   **Select:** Choose columns like 'Graduation Year' and 'Final Grade'.
+
+-   **Filter:** Keep only the rows where 'Graduation Year' is not empty.
+
+-   **Create:** Add a new column 'Passed' that says 'Yes' if the 'Final Grade' is above a certain threshold.
+
+Each of these steps is part of data wrangling and helps prepare the data for deeper analysis, like computing statistics or creating visualizations.
+:::
+
+::::
+
+## [dplyr::](https://dplyr.tidyverse.org/)
+
+:::: panel-tabset
+
+### ::select
+
+<br/>
+Used for looking at specific columns (variables)
+<br/>
+```{r eval=FALSE, echo=TRUE}
+fss_survey_df %>%
+
+```
+
+
+### ::filter
+
+<br/>
+Used for looking at specific rows (cases)
+<br/>
+```{r eval=FALSE, echo=TRUE}
+
+# Filtering data to remove entries without necessary responses
+fss_filtered <- new_name_fss %>%
+  filter(
+    !is.na(income_poverty_ratio),   # Exclude if income_poverty_ratio is missing
+    !is.na(food_sufficiency),       # Exclude if food_sufficiency is missing
+    income_poverty_ratio < 2,       # Focus on households with income close to poverty level
+    household_size > 0              # Ensure the household size is greater than 0
+  )
+
+```
+
+*It's like picking only the pieces of information that match specific criteria.*
+
+### ::mutate
+
+<br/>
+Used for defining new variables from old ones
+<br/>
+```{r eval=FALSE, echo=TRUE}
+
+fss_mutated <- fss_filtered %>%
+  mutate(
+    income_category = case_when(
+      income_poverty_ratio < 1 ~ "Below Poverty",
+      income_poverty_ratio < 2 ~ "Near Poverty",
+      TRUE ~ "Above Poverty"
+  ))
+
+```
+
+*Think of it as highlighting specific columns you want to keep while ignoring others.*
+
+### ::rename
+
+Used to change names, i.e., rename(new_name = old_name)
+
+
+```{r eval=FALSE, echo=TRUE}
+new_name_fss <- prepared_data %>%
+  rename(
+    household_id = HRHHID,
+    income_poverty_ratio = HRPOOR,
+    food_restaurants = HES1C
+  )
+
+
+```
+
+*Think about coded variable names, you can rename them to more descriptive names, which can make the data easier to understand and work with in subsequent analyses.*
+
+
+### ::group_by
+
+```{r eval=FALSE, echo=TRUE}
+
+grouped_data <- new_name_fss %>%
+  group_by(income_poverty_ratio)
+
+```
+
+### ::summarize
+
+```{r eval=FALSE, echo=TRUE}
+
+summarized_data <- grouped_data %>%
+  summarize(
+    average_primary_spending = mean(primary_food_spending, na.rm = TRUE),
+    total_primary_spending = sum(primary_food_spending, na.rm = TRUE)
+  )
+
+```
+
+:::{.notes}
+
+**SPEAKER notes**
+
+::select
+The select function in dplyr allows us to simplify our dataset by focusing only on variables we need for analysis. This can be especially helpful when dealing with wide datasets with numerous variables. By selecting only the relevant columns, we ensure clarity in our analysis and reduce processing time.
+
+::filter
+Next, the filter function enables us to narrow down our dataset to only those rows that meet specific criteria. This is akin to setting a filter on a spreadsheet to only show records that are relevant to our current analysis. For instance, by filtering out cases with missing data and focusing on households near the poverty threshold, we can specifically target our analysis to address questions about economic hardship and its effects.
+
+::mutate
+The mutate function is incredibly powerful for creating new variables that are derivatives of existing ones in our dataset. It allows us to add new layers of information or modify our data structure to better suit our analytical goals. For example, creating a new variable to categorize income levels provides a structured way to analyze data across socio-economic segments.
+
+::rename
+Renaming variables with the rename function is not just about clarity but also about making data more accessible. By giving variables more descriptive names, we make our data easier for others to understand at a glance. It's a crucial step for ensuring that our data analyses are transparent and communicable.
+
+::group_by
+With group_by, we can segment our data into groups based on one or more variables. This function is essential for performing any kind of segmented analysis, like comparing income groups or analyzing spending habits by different demographics. It sets the stage for summarizing data in meaningful ways.
+
+::summarize
+Finally, summarize is used to derive aggregate values like means or totals within the groups we've defined using group_by. This function helps in condensing large datasets into actionable insights by providing summary statistics. For instance, calculating average and total spending within each income category can highlight differences in economic behavior across groups.
+
+General Guidance:
+As we go through each function, think about how they can be used not just individually but also in sequence to transform raw data into insights. The power of dplyr lies in its ability to chain these functions together, streamlining data manipulation and analysis in a way that is both effective and intuitive.
+
+:::
+
+::::

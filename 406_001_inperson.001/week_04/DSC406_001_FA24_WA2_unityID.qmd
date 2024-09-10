@@ -1,0 +1,411 @@
+---
+title: "WA_2_Food_securities_assignment"
+subtitle: "DSC_406.001"
+author: "Write your name here"
+date: today 
+format:
+  html:
+    toc: true
+    toc-depth: 4
+    toc-location: right
+theme:
+  light: simplex
+  dark: cyborg
+editor: visual
+---
+
+# 0. Introduction
+
+**Understanding Our Data:**
+
+-   **Survey Data:** The data we are using comes from a Census survey specifically designed to gather information about food security and economic factors in American households.
+
+## 🤿 **Let’s Dive in:**
+
+### Overview of the Survey
+
+The [Current Population Survey (CPS) and the Food Security Supplement (FSS)](https://www.census.gov/data/datasets/time-series/demo/cps/cps-supp_cps-repwgt/cps-food-security.html) is an integral part of national efforts to monitor the nutritional status of the United States population. This survey is conducted by the United States Census Bureau in collaboration with the United States Department of Agriculture (USDA). The primary focus of the CPS FSS is to evaluate the extent and severity of food insecurity in households across the country, including access to food by all members and the ability to afford sufficient food for healthy living.
+
+### Data Collection
+
+The Food Security Supplement is appended annually to the Census Population Survey (CPS), which is best known for providing the primary source of labor force statistics in the U.S. Data for the supplement are collected in December each year. Households included in the CPS are asked a series of additional questions concerning behaviors and experiences associated with food insecurity, such as skipping meals, reducing food intake, and participating in federal food assistance programs.
+
+### Purpose of the Survey
+
+The data collected serve several key purposes:
+
+-   **Assessing Food Security**: The FSS measures the prevalence of food insecurity and hunger in households, including the severity and frequency of food-insecure conditions over the previous 12 months.
+
+-   **Evaluating Federal Programs**: Insights from the survey help evaluate the effectiveness of federal and state food assistance programs aimed at reducing food insecurity.
+
+-   **Informing Public Policy**: Policymakers use the data to better understand the needs of the population and to allocate resources effectively to combat food scarcity and insecurity.
+
+### Structure of the Data
+
+The dataset includes a wide range of variables covering various aspects of food security and economic strain, including:
+
+-   **Food Expenditure**: Detailed accounting of money spent on food at supermarkets, grocery stores, restaurants, and other food outlets.
+
+-   **Economic Strain and Coping Strategies**: Measures of economic pressures such as spending more to meet food needs, the ability to spend less, and utilization of food programs.
+
+-   **Children's Food Security**: Specific focus on the conditions affecting children within households, assessing if children were not eating enough due to financial constraints.
+
+-   **Assistance Programs**: Information on participation in programs like SNAP (Supplemental Nutrition Assistance Program), school lunch programs, and WIC (Women, Infants, and Children).
+
+### Significance for Learning
+
+Understanding the variables and the overall structure of the CPS Food Security Supplement is essential for students and researchers focusing on public health, economics, social sciences, and policy studies. The dataset not only offers a detailed view of the food security landscape in the U.S. but also serves as a critical tool for gauging the effectiveness of programs aimed at mitigating food-related hardships.
+
+In this lesson, we will explore how to manipulate and analyze this dataset to draw meaningful insights about food security trends and impacts of public assistance programs.
+
+#### BRIEF DATA DESCRIPTIONS
+
+Due to the length please find brief data descriptions in the published document.
+
+✅Check out the **Data Descriptions** [CPD and FSS variables](https://rpubs.com/jmmcclu3/food_insecurities_dd)
+
+# 1. Setup
+
+## Load Packages
+
+#### **👉 1a. Your Turn** **⤵**
+
+-   Use `library()` function to load `tidyverse` package
+
+```{r}
+
+#| warning: false
+#| messages: false
+
+# ADD YOUR CODE BELOW with comments
+
+
+```
+
+## **read in dataframe**
+
+#### **👉 1b. Your Turn** **⤵**
+
+[![](img/readr.png){fig-align="left" width="150"}](https://www.tidyverse.org/)
+
+-   Using the `read_csv ()` function read in Food Security survey called `fss_survey_df.csv` located in the **data** folder.
+
+-   Name it as a new object called `fss_survey`
+
+```{r}
+# ADD YOUR CODE BELOW with comments
+
+```
+
+2.  Data Structure
+
+#### **👉 2a. Your Turn** **⤵**
+
+Inspect the data using `str()` function.
+
+```{r}
+# ADD YOUR CODE BELOW with comments
+
+
+```
+
+#### **👉 2b. Your Turn** **⤵**
+
+Inspect the data using `glimpse()` function. This is a transposed print version where columns are vertical and the data is horizontal.
+
+```{r}
+
+# ADD YOUR CODE BELOW with comments
+
+
+```
+
+#### **👉 2c. Your Turn** **⤵**
+
+Inspect the data variables or column names using `names()` function
+
+```{r}
+# ADD YOUR CODE BELOW with comments
+
+```
+
+#### **👉 2d. Your Turn** **⤵**
+
+What did you notice from the data structure functions?
+
+-   WRITE YOUR ANSWER HERE
+
+::: callout-note
+HINT💡: Check out the Global Environment
+:::
+
+How many observations are there?
+
+-   WRITE YOUR ANSWER HERE
+
+How many variables are there?
+
+-   WRITE YOUR ANSWER HERE
+
+What else are you noticing? Think about the class.
+
+-   WRITE YOUR ANSWER HERE
+
+# 3. Wrangle
+
+::: {.callout-important appearance="simple"}
+Say we hypothesize that **"Economic status influences the frequency and location of food purchases, reflecting varying levels of food security."**
+
+And we have a guiding question: **"How do household economic status and shopping behaviors relate to food security levels?"**
+:::
+
+We would need to do the first step in the EDA process, **Data Wrangling**.
+
+## **dplyr package**
+
+![](img/dplyr.jpg){fig-align="left"}
+
+[`dplyr`](https://dplyr.tidyverse.org/) is a crucial package within the `tidyverse` set,
+
+### 3a. ➡️ ::select ()
+
+The `select()` function is used to choose specific columns in a dataset by their names.
+
+We want to reduce our 70 variables by selecting only the following variables:
+
+-   **HRHHID** - Household Identifier
+-   **HRPOOR** - Household income relative to the poverty level
+    -   1 Below 185% poverty
+    -   2 Above 185% poverty or income not reported
+-   **HES1C** - Food purchased last week from restaurants
+    -   1 Yes
+    -   2 No
+    -   -2 Don't Know
+    -   -3 Refused
+    -   -9 No Response
+-   **HES1D** - Food purchased last week from other types of places
+    -   Yes
+    -   2 No
+    -   -2 Don't Know
+    -   -3 Refused
+    -   -9 No Response
+-   **HETS2O** - Amount spent at supermarkets on food
+    -   : Coded as 0
+    -   1-7: Recoded as the midpoint, 4
+    -   8-490: Rounded to nearest 10 Dollars
+    -   -2 Don't Know
+    -   -3 Refused
+    -   -9 No Response
+-   **HETS6O** - Amount spent on food at restaurants
+    -   0: Coded as 0
+    -   1-7: Recoded as the midpoint, 4
+    -   8-300: Rounded to nearest 10 Dollars
+    -   -2 Don't Know
+    -   -3 Refused
+    -   -9 No Response
+-   **HESS1** - Food sufficiency
+    -   1 Enough of the kinds of food we want to eat
+    -   2 Enough but not always the kinds of food we want to eat
+    -   3 Sometimes not enough to eat
+    -   4 Often not enough to eat
+    -   -2 Don't Know
+    -   -3 Refused
+    -   -9 No Response
+-   **HESS4** - Meals missed due to lack of money
+    -   1 Often true
+    -   2 Sometimes true
+    -   3 Never true
+    -   -2 Don't Know
+    -   -3 Refused
+    -   -9 No Response
+-   **HRNUMHOU** - Number of people in the household
+    -   0 MIN VALUE
+    -   16 MAX VALUE
+
+#### **👉 3a. Your Turn** **⤵**
+
+### Selecting Relevant Variables
+
+-   **Objective:** Reduce the dataset to focus on variables relevant to our hypothesis about economic status and food purchase behaviors affecting food security.
+
+    **Task:** Use the `select()` function to choose specific columns. Save the resulting subset to a new object called `prepared_data`.
+
+    **Instructions:**
+
+    1.  Use the `select()` function to pick the relevant variables from `fss_survey` (see above).
+
+    2.  Save the output to `prepared_data`.
+
+```{r}
+# ADD YOUR CODE BELOW with comments
+prepared_data <- fss_survey %>%
+  select(HRHHID,HRPOOR,HES1C,HES1D,HETS2O,HETS6O,HESS1,HESS4,HRNUMHOU)
+```
+
+### 3b. ➡️ ::**rename()**
+
+### **New Variables Names:**
+
+-   **HRHHID** - `household_id`
+-   **HRPOOR** - `income_poverty_ratio`
+-   **HES1C** - `food_restaurants`
+-   **HES1D** - `food_other_places`
+-   **HETS2O** - `supermarket_food_spending`
+-   **HETS6O** - `restaurant_food_spending`
+-   **HESS1** - `food_sufficiency`
+-   **HESS4** - `missed_meals`
+-   **HRNUMHOU** - `household_size`
+-   **PWSUPWGT** - `person_weight`
+
+#### **👉 3b. Your Turn** **⤵**
+
+### **Renaming Variables**
+
+-   **Objective:** Rename the selected variables for better readability and ease of analysis.
+
+    **Task:** Use the `rename()` function to change the column names in `prepared_data`. Save the renamed dataset to a new object called `new_name_fss`.
+
+    **Instructions:**
+
+    1.  Use the `rename()` function to update the column names based on the provided mappings.
+
+    2.  Save the renamed dataframe to `new_name_fss`.
+
+```{r}
+
+# ADD YOUR CODE BELOW with comments
+
+```
+
+You should take a moment and inspect your data using a function of your choice
+
+```{r}
+# ADD YOUR CODE BELOW with comments
+
+```
+
+### 3c. ➡️ ::filter()
+
+#### **👉 3c. Your Turn** **⤵**
+
+### **Filtering Data**
+
+-   **Objective:** Narrow down the dataset to households close to poverty and experiencing food insufficiency.
+
+    **Task:** Use the `filter()` function to keep only rows where households are near poverty and report food insufficiency. Store this filtered dataset in an object called `filtered_data`.
+
+    **Instructions:**
+
+    1.  Apply the `filter()` function to `new_name_fss` focusing on `income_poverty_ratio` and `food_sufficiency`.
+
+    2.  Save the result in `filtered_data`.
+
+```{r}
+# ADD YOUR CODE BELOW with comments
+
+```
+
+**Inspect the filtered data:**
+Use `head()` or `summary()` to review the characteristics of the filtered data.
+
+```{r}
+# ADD YOUR CODE BELOW with comments
+
+
+```
+
+What do you notice?
+
+-   WRITE YOUR ANSWER HERE
+
+### 3d. ➡️ :: mutate()
+
+### **Creating and Using Mutated Variables**
+
+#### **👉 3d. Your Turn** **⤵**
+
+#### Creating and Using Mutated Variables
+
+**Objective:** Calculate total food spending by adding supermarket and restaurant expenditures.
+
+**Task:** Use the `mutate()` function to add a new column `total_food_spending` to `new_name_fss`. Then, summarize this new column to see spending distribution.
+
+**Instructions:**
+
+1.  Add a new column that sums up supermarket and restaurant spending.
+
+2.  Use `count()` to aggregate and count entries by `total_food_spending`.
+
+```{r}
+# ADD YOUR CODE BELOW with comments
+
+
+```
+
+Now count up the new total_food_spending
+
+```{r}
+# ADD YOUR CODE BELOW with comments
+
+```
+
+Reflect on what they notice about the distribution of total food spending across different economic statuses.
+
+-   WRITE YOUR ANSWER HERE
+
+### 3e. ➡️ ::group_by()
+
+### Grouping Data
+
+**Objective:** Understand how household economic status affects overall food spending patterns.
+
+**Task:** Use the `group_by()` function to group the data by `income_poverty_ratio`. Save this grouped dataset in an object called `grouped_data`.
+
+**Instructions:**
+
+1.  Apply the `group_by()` function to `mutated_data` focusing on the `income_poverty_ratio`.
+
+2.  Save the result in `grouped_data`.
+
+```{r}
+# ADD YOUR CODE BELOW with comments
+
+```
+
+**Inspect the grouped data:**
+Use a function like `summary()` or `head()` to inspect the properties of the grouped data.
+
+```{r}
+# ADD YOUR CODE BELOW with comments
+
+```
+
+### 3f. ➡️ ::summarize()
+
+### Summarizing Grouped Data
+
+**Objective:** Calculate the average and total supermarket and restaurant spending for each income category.
+
+**Task:** Use the `summarize()` function to calculate the average and total spending for each group defined by `income_poverty_ratio`. Store this summarized dataset in an object called `summarized_data`.
+
+**Instructions:**
+
+1.  Using `grouped_data`, apply the `summarize()` function to calculate the `mean` and `sum` of `supermarket_food_spending` and `restaurant_food_spending`.
+
+2.  Use `n()` to count the number of households in each income group.
+
+3.  Save the summarized data to `summarized_data`.
+
+```{r}
+# ADD YOUR CODE BELOW with comments
+
+
+```
+
+-   How do economic conditions influence spending patterns on food at supermarkets versus restaurants?
+
+-   WRITE YOUR ANSWER HERE
+
+-   What might the differences in spending tell us about access and food security among different income groups?
+
+-   WRITE YOUR ANSWER HERE

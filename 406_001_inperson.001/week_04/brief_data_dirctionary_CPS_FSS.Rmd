@@ -1,0 +1,170 @@
+---
+title: "Brief Data Descriptions CPS and FSS"
+output: html_document
+date: "2024-09-06"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Data Descriptions
+
+| Value | Description |
+|:-----:|:------------|
+|  -1   | Blank       |
+|  -2   | Don't know  |
+|  -3   | Refused     |
+
+-   These codes are used to categorize non-response or specific types of non-participation in survey questions.
+
+# **CPS Survey Data Dictionary**
+
+## Key Variables (19 variables)
+
+### Basic Demographics
+
+-   **HRHHID** (Household ID): Unique identifier for each household surveyed.
+-   **PRTAGE** (Age): The respondent's age in years.
+-   **PESEX** (Sex): The sex of the respondent (e.g., Male, Female).
+-   **PTDTRACE** (Race): Detailed racial background of the respondent.
+-   **PEMARITL** (Marital Status): Marital status of the respondent (e.g., Married, Single, Divorced).
+
+### Geographic Location
+
+-   **GEREG** (Region): Census bureau region code where the respondent resides.
+-   **GESTFIPS** (State): Federal Information Processing Standards code for the state.
+
+### Household Composition
+
+-   **HRNUMHOU** (Number of Persons in Household): Total number of people living in the household.
+-   **HETENURE** (Tenure of Housing): Whether the housing is rented or owned.
+
+### Economic and Employment Factors
+
+-   **HEFAMINC** (Family Income): Total family income.
+-   **PEMLR** (Employment Status): Employment status of the respondent (e.g., Employed, Unemployed).
+-   **PUWK** (Weeks Worked): Number of weeks worked in the last year.
+-   **PEHRUSL1** (Usual Hours Worked): Usual number of hours worked per week.
+
+### Job Characteristics
+
+-   **PEMJOT** (Multiple Jobs): Whether the respondent has more than one job.
+-   **PEHRWANT** (Desired Working Hours): Number of hours the respondent wishes to work.
+-   **PUABSOT** (Absent from Work): Reason for absence from work (e.g., Illness, Vacation).
+
+### Special Focus Variables
+
+-   **PEEDUCA** (Education Level): Highest level of education attained.
+-   **PUDIS** (Disability Status): Indicates whether the respondent has a reported disability.
+-   **PENATVTY** (Country of Birth): Country of birth of the respondent.
+
+# Food Security Survey Data Dictionary
+
+## Key Variables (71 variables)
+
+### Basic Demographics
+
+-   **HRHHID** (Household ID): Unique identifier for each household surveyed.
+
+### Food Purchasing and Expenses
+
+-   **HES1C**: Food purchased last week from restaurants.
+
+-   **HES1D**: Food purchased last week from other types of places.
+
+-   **HETS2O**: Amount spent at supermarkets on food.
+
+-   **HETS3O**: Amount spent at supermarkets on non-food items.
+
+-   **HETS4O**: Amount spent at other food stores.
+
+-   **HETS5O**: Amount spent on non-food items at other stores.
+
+-   **HETS6O**: Amount spent on food at restaurants.
+
+-   **HETS7O**: Amount spent on food at miscellaneous places.
+
+-   **HETS8O**: Total amount spent on food last week.
+
+-   **HETS8OU**: Usual weekly food expenditure.
+
+### Economic Strain and Food Sufficiency
+
+-   **HES8B**: Financial adequacy for food needs.
+
+-   **HETS8CO**: Additional weekly funds needed for food.
+
+-   **HETS8DO**: Possible reduction in food expenditure without impact.
+
+-   **HES9**: Money shortage for food in the last year.
+
+### Food Security and Household Conditions
+
+-   **HESS1**: Food sufficiency.
+
+-   **HESS2**: Variety of food available.
+
+-   **HESS3**: Adequacy of meals.
+
+-   **HESS4**: Meals missed due to lack of money.
+
+-   **HESSM2**: Recent occurrence of HESS2 conditions.
+
+-   **HESSM3**: Recent occurrence of HESS3 conditions.
+
+-   **HESSM4**: Recent occurrence of HESS4 conditions.
+
+### Adult Food Security
+
+-   **HESH2**: Adults skipped meals.
+
+-   **HESH3**: Adults hungry but didn't eat.
+
+-   **HESH4**: Adults did not eat for a whole day.
+
+-   **HESH5**: Adults cut meal size or skipped meals frequently.
+
+-   **HESHF2**: Frequency of adults skipping meals.
+
+-   **HESHF3**: Frequency of hunger without eating.
+
+-   **HESHF4**: Frequency of not eating for a whole day.
+
+-   **HESHM2**: Recent occurrence of adults skipping meals.
+
+-   **HESHM3**: Recent occurrence of hunger without eating.
+
+-   **HESHM4**: Recent occurrence of not eating for a whole day.
+
+-   **HETSHMF2**: Monthly frequency of skipped meals.
+
+-   **HETSHMF3**: Monthly frequency of hunger without eating.
+
+-   **HETSHMF4**: Monthly frequency of not eating for a whole day.
+
+### Child Food Security
+
+-   **HESSH1**: Children did not eat for a whole day.
+
+-   **HESSH5**: Children cut meal size or skipped meals frequently.
+
+-   **HESSHF1**: Frequency of children not eating for a whole day.
+
+-   **HESSHM1**: Recent occurrence of children not eating for a whole day.
+
+-   **HETSSHMF1**: Monthly frequency of children not eating for a whole day.
+
+### General and Administrative
+
+-   **HRPOOR**: Household income relative to poverty level.
+
+-   **HRNUMHOU**: Number of people in the household.
+
+-   **HRFS12CX, HRFS12M1, HRFS12MD, HRFS12M3, HRFS12M4, HRFS12MC, HRFS12M6, HRFS12M7, HRFS12M8, HRFS12M9, HRFS12ME**: Specific codes for various household survey metrics (e.g., type of food security).
+
+-   **HRFS30D1 to HRFS30DE**: Specific dates related to 30-day food security measurement
+
+-   **PWSUPWGT**: Person-level supplemental weight.
+
+-   **HRSUPINT**: Interview supplement status.
